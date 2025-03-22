@@ -10,6 +10,8 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-center mb-4">Welcome to My Portfolio</h1>
         <p className="text-lg text-center">This is a brief introduction about myself.</p>
       </div>
+
+      
       <Footer />
     </div>
   );
