@@ -29,7 +29,7 @@ export default function AboutPage() {
             
             <FadeIn delay={0.2}>
               <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                Hi, I'm <span className="text-primary">Eakhlasur Rahman</span>
+                Hi, I&apos;m <span className="text-primary">Eakhlasur Rahman</span>
               </h1>
               <p className="text-xl font-medium text-muted-foreground mb-6">
                 Frontend Web Developer
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 As a developer, I focus on creating responsive, user-friendly web applications that deliver exceptional user experiences. My competitive programming background has sharpened my algorithmic thinking and ability to write efficient code, with over 800 problems solved across platforms like Codeforces and LeetCode.
               </p>
               <p>
-                I recently completed a Frontend Internship at Lamptechs where I enhanced my skills working on production applications, implementing authentication systems and efficient data fetching strategies. I'm passionate about continuous learning and staying updated with the latest web technologies and best practices.
+                I recently completed a Frontend Internship at Lamptechs where I enhanced my skills working on production applications, implementing authentication systems and efficient data fetching strategies. I&apos;m passionate about continuous learning and staying updated with the latest web technologies and best practices.
               </p>
             </div>
           </RevealContainer>

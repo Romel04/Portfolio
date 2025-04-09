@@ -115,7 +115,7 @@ export default function ProjectsPageComponent() {
         <RevealContainer className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">My Projects</h1>
           <p className="text-muted-foreground">
-            A collection of web applications I've developed, showcasing my skills in frontend and full-stack development.
+            A collection of web applications I&apos;ve developed, showcasing my skills in frontend and full-stack development.
           </p>
         </RevealContainer>
 

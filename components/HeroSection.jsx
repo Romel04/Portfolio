@@ -35,7 +35,7 @@ export default function HeroSection() {
           <div className="mb-6">
             <TextReveal className="inline-block" delay={0.2}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Hi, I'm <span className="text-gradient">Eakhlasur Rahman</span>
+                Hi, I&apos;m <span className="text-gradient">Eakhlasur Rahman</span>
               </h1>
             </TextReveal>
           </div>

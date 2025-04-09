@@ -174,7 +174,7 @@ export default function ExperiencePage() {
         <div className="max-w-4xl mx-auto mt-16 text-center">
           <FadeIn>
             <p className="text-muted-foreground mb-4">
-              Interested in working together? Let's discuss how I can contribute to your team or project.
+              Interested in working together? Let&apos;s discuss how I can contribute to your team or project.
             </p>
             <Link 
               href="/contact" 

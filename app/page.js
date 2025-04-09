@@ -108,7 +108,7 @@ export default function Home() {
             <RevealContainer>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in working together?</h2>
               <p className="text-xl text-muted-foreground mb-8">
-                I'm always open to discussing new projects or opportunities.
+                I&apos;m always open to discussing new projects or opportunities.
               </p>
               <Button asChild size="lg">
                 <Link href="/contact">
