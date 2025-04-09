@@ -1,113 +1,124 @@
-import Image from "next/image";
+import { FadeIn, RevealContainer } from "@/components/animations";
+import ExperienceCard from "@/components/ExperienceCard";
+import HeroSection from "@/components/HeroSection";
+import ProjectSection from "@/components/ProjectSection"; // Import the new component
+import SkillIcon from "@/components/SkillIcon";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
+// Data for skills
+const skills = [
+  { name: "Next.js", category: "framework" },
+  { name: "React", category: "framework" },
+  { name: "Angular", category: "framework" },
+  { name: "Node.js", category: "framework" },
+  { name: "JavaScript", category: "language" },
+  { name: "C++", category: "language" },
+  { name: "Tailwind CSS", category: "styling" },
+  { name: "MongoDB", category: "database" },
+];
+
+// Data for experience
+const experiences = [
+  {
+    id: 1,
+    title: "Frontend Intern",
+    company: "Lamptechs",
+    period: "October 2024 - March 2025",
+    description: "Developed user-friendly web applications using Next.js and React. Implemented authentication features with NextAuth and integrated Google Signup. Utilized TanStack Query for efficient data fetching and state management.",
+    technologies: ["Next.js", "React", "NextAuth", "TanStack Query"]
+  },
+  {
+    id: 2,
+    title: "Industrial Attachment",
+    company: "SELISE Digital Platforms",
+    period: "10 Days",
+    description: "Gained foundational knowledge in the MEAN stack while developing an e-commerce project. Immersed in the software industry to understand project workflows and best practices.",
+    technologies: ["Angular", "Node.js", "Express.js", "MongoDB"]
+  }
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="min-h-screen">
+      <HeroSection />
+      
+      {/* Featured Projects Section - Using the new carousel component */}
+      <ProjectSection />
+      
+      {/* Skills Section */}
+      <section className="py-16">
+        <div className="container">
+          <RevealContainer className="mb-12">
+            <h2 className="text-3xl font-bold">Skills & Expertise</h2>
+            <p className="text-muted-foreground mt-2">Technologies I work with</p>
+          </RevealContainer>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {skills.map((skill, index) => (
+              <FadeIn key={skill.name} direction="up" delay={index * 0.1}>
+                <SkillIcon skill={skill} />
+              </FadeIn>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button asChild variant="outline" className="group">
+              <Link href="/skills">
+                All Skills
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </section>
+      
+      {/* Experience Section */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container">
+          <RevealContainer className="mb-12">
+            <h2 className="text-3xl font-bold">Experience</h2>
+            <p className="text-muted-foreground mt-2">My professional journey</p>
+          </RevealContainer>
+          
+          <div className="space-y-8">
+            {experiences.map((experience, index) => (
+              <FadeIn key={experience.id} direction="up" delay={index * 0.2}>
+                <ExperienceCard experience={experience} />
+              </FadeIn>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button asChild className="group">
+              <Link href="/experience">
+                Full Experience
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact CTA Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <RevealContainer>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in working together?</h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                I'm always open to discussing new projects or opportunities.
+              </p>
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Get in Touch
+                </Link>
+              </Button>
+            </RevealContainer>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
