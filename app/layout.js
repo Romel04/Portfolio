@@ -13,11 +13,18 @@ const fontSans = FontSans({
 export const metadata = {
   title: "Eakhlasur Rahman | Web Developer",
   description: "Portfolio of Eakhlasur Rahman, a Frontend Web Developer specializing in Next.js, React and Angular",
+  icons: {
+    icon: "/favicon.gif", // Add this line
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.gif" type="image/gif" />
+      </head>
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
         fontSans.variable

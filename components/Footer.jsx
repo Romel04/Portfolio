@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="border-t py-8 mt-12">
       <div className="container">
         <div className="grid gap-8 md:grid-cols-2">
-          <div>
+          <div className="w-[70%]">
             <h3 className="text-lg font-semibold mb-2">Eakhlasur Rahman</h3>
             <p className="text-muted-foreground mb-4">
               Web developer with expertise in Next.js, React, and Angular. Passionate about building user-friendly applications.
@@ -20,7 +20,7 @@ export default function Footer() {
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="https://www.linkedin.com/in/eakhlasur-rahman" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/in/eakhlasur-rahman04/" target="_blank" rel="noopener noreferrer">
                   <Linkedin size={18} />
                   <span className="sr-only">LinkedIn</span>
                 </Link>
@@ -32,7 +32,7 @@ export default function Footer() {
                 </Link>
               </Button>
               <Button size="icon" variant="ghost" asChild>
-                <Link href="#">
+                <Link href="https://www.facebook.com/romel.rahman.796">
                   <Facebook size={18} />
                   <span className="sr-only">Facebook</span>
                 </Link>
@@ -77,9 +77,12 @@ export default function Footer() {
                 <li className="text-sm text-muted-foreground">
                   <span>Bashabo, Dhaka-1214</span>
                 </li>
-                <li>
+                <li className="flex flex-col gap-2">
                   <Link href="tel:+8801911463152" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     +880 1911 463152
+                  </Link>
+                  <Link href="tel:+8801633302760" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    +880 1633 302769
                   </Link>
                 </li>
                 <li>

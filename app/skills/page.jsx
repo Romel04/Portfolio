@@ -9,7 +9,7 @@ export const metadata = {
 
 const skills = [
   { name: "React", category: "framework", icon: "/skills/react.png" },
-  { name: "Next.js", category: "framework", icon: "/skills/nextjs.jfif" },
+  { name: "Next.js", category: "framework", icon: "/skills/nextjs.png" },
   { name: "Angular", category: "framework", icon: "/skills/angular.webp" },
   { name: "JavaScript", category: "language", icon: "/skills/js.png" },
   { name: "C++", category: "language", icon: "/skills/c.png" },
