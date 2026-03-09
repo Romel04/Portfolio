@@ -19,10 +19,13 @@ const skills = [
   { name: "Bootstrap", category: "styling", icon: "/skills/bootstrap.png" },
   { name: "Node.js", category: "framework", icon: "/skills/nodejs.png" },
   { name: "Express.js", category: "framework", icon: "/skills/express.png" },
+  { name: "Nest.js", category: "framework", icon: "/skills/nestjs.svg" },
   { name: "MongoDB", category: "database", icon: "/skills/mongodb.png" },
   { name: "MySQL", category: "database", icon: "/skills/mysql.png" },
   { name: "Git", category: "tools", icon: "/skills/git.png" },
   { name: "GitHub", category: "tools", icon: "/skills/github.png" },
+  { name: "PostgreSQL", category: "database", icon: "/skills/postgresql.svg" },
+  { name: "TypeScript", category: "language", icon: "/skills/typescript.svg" },
 ];
 
 const skillCategories = [
@@ -34,17 +37,17 @@ const skillCategories = [
   {
     title: "Backend & Server-side",
     icon: <Server className="h-6 w-6" />,
-    skills: ["Node.js", "Express.js", "RESTful APIs"],
+    skills: ["Node.js", "Express.js", "Nest.js", "RESTful APIs"],
   },
   {
     title: "Programming Languages",
     icon: <Code className="h-6 w-6" />,
-    skills: ["JavaScript", "C++"],
+    skills: ["JavaScript", "TypeScript", "C++"],
   },
   {
     title: "Databases",
     icon: <Database className="h-6 w-6" />,
-    skills: ["MongoDB", "MySQL"],
+    skills: ["MongoDB", "MySQL", "PostgreSQL"],
   },
   {
     title: "Version Control & Tools",

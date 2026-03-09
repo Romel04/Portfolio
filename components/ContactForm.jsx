@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Send } from "lucide-react";
 import { ScaleIn } from "./animations";
-import { Toast } from "@radix-ui/react-toast";
+import { toast } from "sonner";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -25,18 +25,43 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulating form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "6d8d79aa-f4cc-4cbf-8203-7c2a6f9fabe1",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "Portfolio Website Contact", 
+        }),
+      });
 
-    Toast.success("Message sent! Thanks for reaching out. I'll get back to you soon."); // Update toast usage
+      const result = await response.json();
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      if (response.status === 200) {
+        toast.success("Message sent! Thanks for reaching out. I'll get back to you soon.");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("Web3Forms Error:", result);
+        toast.error("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

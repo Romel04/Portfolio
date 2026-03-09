@@ -3,6 +3,7 @@ import ExperienceCard from "@/components/ExperienceCard";
 import HeroSection from "@/components/HeroSection";
 import ProjectSection from "@/components/ProjectSection"; // Import the new component
 import SkillIcon from "@/components/SkillIcon";
+import SkillsCloud from "@/components/SkillsCloud";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -17,6 +18,9 @@ const skills = [
   { name: "C++", category: "language" },
   { name: "Tailwind CSS", category: "styling" },
   { name: "MongoDB", category: "database" },
+  { name: "Nest.js", category: "framework" },
+  { name: "PostgreSQL", category: "database" },
+  { name: "TypeScript", category: "language" },
 ];
 
 // Data for experience
@@ -55,12 +59,20 @@ export default function Home() {
             <p className="text-muted-foreground mt-2">Technologies I work with</p>
           </RevealContainer>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {skills.map((skill, index) => (
-              <FadeIn key={skill.name} direction="up" delay={index * 0.1}>
-                <SkillIcon skill={skill} />
-              </FadeIn>
-            ))}
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Standard Grid for mobile/tablet, left column on desktop */}
+            <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {skills.map((skill, index) => (
+                <FadeIn key={skill.name} direction="up" delay={index * 0.1}>
+                  <SkillIcon skill={skill} />
+                </FadeIn>
+              ))}
+            </div>
+            
+            {/* 3D Skills Cloud for right column on desktop */}
+            <div className="w-full lg:w-1/2 flex justify-center relative z-10 hidden md:block">
+              <SkillsCloud />
+            </div>
           </div>
           
           <div className="mt-12 text-center">

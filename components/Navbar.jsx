@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { motion } from "framer-motion";
+import CustomLink from "./CustomLink";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -46,7 +46,7 @@ export default function Navbar() {
       )}
     >
       <div className="container flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <CustomLink href="/" className="flex items-center space-x-2">
           <motion.span 
             className="text-xl font-bold" 
             initial={{ opacity: 0, x: -20 }}
@@ -55,7 +55,7 @@ export default function Navbar() {
           >
             Eakhlasur<span className="text-accent">.</span>
           </motion.span>
-        </Link>
+        </CustomLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
@@ -66,7 +66,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link
+              <CustomLink
                 href={item.path}
                 className={cn(
                   "px-3 py-2 text-sm rounded-md transition-colors",
@@ -76,7 +76,7 @@ export default function Navbar() {
                 )}
               >
                 {item.name}
-              </Link>
+              </CustomLink>
             </motion.div>
           ))}
           
@@ -126,7 +126,7 @@ export default function Navbar() {
         >
           <nav className="container flex flex-col py-4">
             {navItems.map((item) => (
-              <Link
+              <CustomLink
                 key={item.path}
                 href={item.path}
                 onClick={() => setMobileMenuOpen(false)}
@@ -138,7 +138,7 @@ export default function Navbar() {
                 )}
               >
                 {item.name}
-              </Link>
+              </CustomLink>
             ))}
           </nav>
         </motion.div>

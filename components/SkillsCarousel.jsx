@@ -11,11 +11,12 @@ const SPEED_MULTIPLIERS = [1, 0.8, 1.2, 0.9, 1.1];
 export default function SkillsCarousel({ skills }) {
   const carouselRef = useRef(null);
   
-  // Split skills into 3 different rows
+  // Split skills into 3 different rows dynamically
+  const itemsPerRow = Math.ceil(skills.length / 3);
   const rows = [
-    skills.slice(0, 5),
-    skills.slice(5, 9),
-    skills.slice(9, 15)
+    skills.slice(0, itemsPerRow),
+    skills.slice(itemsPerRow, itemsPerRow * 2),
+    skills.slice(itemsPerRow * 2)
   ];
 
   // Create duplicate rows for infinite effect
