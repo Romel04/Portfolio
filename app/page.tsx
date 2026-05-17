@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             
             {/* 3D Skills Cloud for right column on desktop */}
-            <div className="w-full lg:w-1/2 flex justify-center relative z-10 hidden md:block">
+            <div className="w-full lg:w-1/2  justify-center relative z-10 hidden md:block">
               <SkillsCloud />
             </div>
           </div>
